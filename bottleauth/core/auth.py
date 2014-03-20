@@ -57,10 +57,10 @@ import urlparse
 import uuid
 import pprint
 
-from bottleauth.tornado import httpclient
-from bottleauth.tornado import escape
-from bottleauth.tornado.escape import _unicode
-from bottleauth.tornado.httputil import url_concat, bytes_type, b
+from bottleauth.core import httpclient
+from bottleauth.core import escape
+from bottleauth.core.escape import _unicode
+from bottleauth.core.httputil import url_concat, bytes_type, b
 
 import webob
 import functools
