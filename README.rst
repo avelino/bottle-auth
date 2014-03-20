@@ -43,4 +43,4 @@ Create project
 2. Visit `https://code.google.com/apis/console#access <https://code.google.com/apis/console#access>`_ in the same browser
 3. On the left menu, Create a new Project
 4. To start, you don’t need any Services, so select the API Access tab rom the left menu and “Create an OAuth 2.0 client ID…”
-5. Fill out the Client ID form for a “web application” and use localhost:8000 as your hostname
+5. Fill out the Client ID form for a **web application** and use *localhost:8000* as your hostname
