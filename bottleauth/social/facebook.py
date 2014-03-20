@@ -3,7 +3,7 @@
 import logging
 
 from bottleauth.exception import UserDenied, NegotiationError
-from bottleauth.tornado.auth import FacebookGraphMixin, HTTPRedirect
+from bottleauth.core.auth import FacebookGraphMixin, HTTPRedirect
 
 
 log = logging.getLogger('bottleauth.facebook')
