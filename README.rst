@@ -14,7 +14,7 @@ Example
     from pprint import pformat
 
     facebook = Facebook('fb-key', 'fb-secret',
-                        'http://127.0.0.1:8080/facebook/callback', 'email')
+                        'http://127.0.0.1:8000/callback', 'email')
 
     @route('/login')
     def login():
