@@ -57,10 +57,10 @@ import urlparse
 import uuid
 import pprint
 
-from bottleauth.core import httpclient
-from bottleauth.core import escape
-from bottleauth.core.escape import _unicode
-from bottleauth.core.httputil import url_concat, bytes_type, b
+from bottle_auth.core import httpclient
+from bottle_auth.core import escape
+from bottle_auth.core.escape import _unicode
+from bottle_auth.core.httputil import url_concat, bytes_type, b
 
 import webob
 import functools

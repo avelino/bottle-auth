@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-'
 import logging
 
-from bottleauth.exception import UserDenied, NegotiationError
-from bottleauth.core.auth import FacebookGraphMixin, HTTPRedirect
+from bottle_auth.core.exception import UserDenied, NegotiationError
+from bottle_auth.core.auth import FacebookGraphMixin, HTTPRedirect
 
 
 log = logging.getLogger('bottleauth.facebook')

@@ -4,10 +4,9 @@ import bottle
 import inspect
 
 
-if not hasattr(bottle, 'PluginError'):
-    class PluginError(bottle.BottleException):
-        pass
-    bottle.PluginError = PluginError
+__version__ = '0.1.2'
+__author__ = "Thiago Avelino"
+__email__ = "thiago@avelino.xxx"
 
 
 class AuthPlugin(object):
@@ -31,30 +30,11 @@ class AuthPlugin(object):
                 raise bottle.PluginError("Found another auth plugin "
                                          "with conflicting settings ("
                                          "non-unique keyword).")
-            elif other.name == self.name:
-                self.name += '_%s' % self.keyword
 
-        if self.create and not self.metadata:
-            raise bottle.PluginError("Define metadata value to create "
-                                     "database.")
+    def apply(self, callback, context):
+        args = inspect.getargspec(context['callback'])[0]
 
-    def apply(self, callback, route):
-        # hack to support bottle v0.9.x
-        if bottle.__version__.startswith('0.9'):
-            config = route['config'].get('auth', {})
-            _callback = route['callback']
-        else:
-            config = route.config.get('auth', {})
-            _callback = route.callback
-
-        if "auth" in config:
-            g = lambda key, default: config.get('auth', {}).get(key, default)
-        else:
-            g = lambda key, default: config.get('auth.' + key, default)
-
-        keyword = g('keyword', self.keyword)
-        argspec = inspect.getargspec(_callback)
-        if not (keyword in argspec.args):
+        if self.keyword not in args:
             return callback
 
         def wrapper(*args, **kwargs):
@@ -62,6 +42,3 @@ class AuthPlugin(object):
             return callback(*args, **kwargs)
 
         return wrapper
-
-
-Plugin = AuthPlugin

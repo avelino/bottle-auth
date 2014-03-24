@@ -3,8 +3,8 @@
 import logging
 import re
 
-from bottleauth.exception import UserDenied, NegotiationError
-from bottleauth.core.auth import TwitterMixin, HTTPRedirect
+from bottle_auth.exception import UserDenied, NegotiationError
+from bottle_auth.core.auth import TwitterMixin, HTTPRedirect
 
 log = logging.getLogger('tastyauth.twitter')
 

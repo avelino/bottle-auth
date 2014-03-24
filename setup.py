@@ -1,20 +1,20 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from setuptools import setup
-import bottleauth
+import bottle_auth
 
 description = "Bootle authentication, for Personal, Google, Twitter and "
 "Facebook."
 
 setup(
-    name='bottleauth',
-    version=bottleauth.__version__,
+    name='bottle_auth',
+    version=bottle_auth.__version__,
     description=description,
-    author=bottleauth.__author__,
-    author_email=bottleauth.__email__,
+    author=bottle_auth.__author__,
+    author_email=bottle_auth.__email__,
     url='https://github.com/avelino/bottle-auth',
 
-    package_dir={'bottleauth': 'bottleauth'},
+    package_dir={'bottle_auth': 'bottle_auth'},
 
     install_requires=['webob',],
 )

@@ -3,8 +3,8 @@
 import logging
 from urlparse import urlparse
 
-from bottleauth.exception import UserDenied, NegotiationError
-from bottleauth.core.auth import GoogleMixin, HTTPRedirect
+from bottle_auth.core.exception import UserDenied, NegotiationError
+from bottle_auth.core.auth import GoogleMixin, HTTPRedirect
 
 
 log = logging.getLogger('bottleauth.google')
