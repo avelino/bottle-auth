@@ -3,8 +3,8 @@
 from setuptools import setup
 import bottle_auth
 
-description = "Bootle authentication, for Personal, Google, Twitter and "
-"Facebook."
+description = "Bootle authentication, for Personal, Google, Twitter and "\
+    "facebook."
 
 setup(
     name='bottle_auth',
