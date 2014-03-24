@@ -7,7 +7,7 @@ description = "Bootle authentication, for Personal, Google, Twitter and "\
     "facebook."
 
 setup(
-    name='bottle_auth',
+    name='bottle-auth',
     version=bottle_auth.__version__,
     description=description,
     author=bottle_auth.__author__,
