@@ -10,21 +10,26 @@ Example
 .. code-block:: python
 
     from bottle import route, redirect, request
+    from bottle.ext import auth
     from bottleauth.social.facebook import Facebook, UserDenied, NegotiationError
     from pprint import pformat
 
     facebook = Facebook('fb-key', 'fb-secret',
                         'http://127.0.0.1:8000/callback', 'email')
 
-    @route('/login')
-    def login():
-        url = facebook.redirect(request.environ)
+    app = bottle.Bottle()
+    plugin = auth.Plugin(facebook)
+    app.install(plugin)
+
+    @app.route('/login')
+    def login(auth):
+        url = auth.redirect(request.environ)
         redirect(url)
 
-    @route('/callback')
+    @app.route('/callback')
     def callback(provider):
         try:
-            user = facebook.get_user(request.environ)
+            user = auth.get_user(request.environ)
         except UserDenied:
             return 'User denied'
         except NegotiationError:
