@@ -9,16 +9,17 @@ Example
 
 .. code-block:: python
 
-    from bottle import Bottle, redirect, request
+    from bottle import Bottle, redirect, request, run
     from bottle.ext import auth
-    from bottleauth.social.facebook import Facebook, UserDenied, NegotiationError
+    from bottle.ext.auth.social.facebook import Facebook, UserDenied
+    from bottle.ext.auth.social.facebook import NegotiationError
     from pprint import pformat
 
     facebook = Facebook('fb-key', 'fb-secret',
                         'http://127.0.0.1:8000/callback', 'email')
 
-    app = bottle.Bottle()
-    plugin = auth.Plugin(facebook)
+    app = Bottle()
+    plugin = auth.AuthPlugin(facebook)
     app.install(plugin)
 
 
@@ -38,6 +39,9 @@ Example
             return 'Negotiation error, maybe expired stuff'
 
         return '<pre>{}</pre>'.format(pformat(user))
+
+
+    run(app=app, host='0.0.0.0', port='3333', debug=True)
 
 
 Google
