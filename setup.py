@@ -16,8 +16,5 @@ setup(
 
     package_dir={'bottleauth': 'bottleauth'},
 
-    install_requires=[
-        'webob',
-        'tornado'
-    ],
+    install_requires=['webob',],
 )
