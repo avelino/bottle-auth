@@ -11,6 +11,7 @@ Example
 
     from bottle import Bottle, redirect, request, run
     from bottle.ext import auth
+    from bottle.ext.auth.decorator import login
     from bottle.ext.auth.social.facebook import Facebook, UserDenied
     from bottle.ext.auth.social.facebook import NegotiationError
     from pprint import pformat
@@ -27,6 +28,12 @@ Example
     def login(auth):
         url = auth.redirect(request.environ)
         redirect(url)
+
+
+    @app.route('/')
+    @login('/login')
+    def home():
+        return "Home page"
 
 
     @app.route('/callback')
