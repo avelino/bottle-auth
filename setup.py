@@ -16,5 +16,5 @@ setup(
 
     package_dir={'bottle_auth': 'bottle_auth'},
 
-    install_requires=['webob'],
+    install_requires=['webob', 'bottle-mongo'],
 )
