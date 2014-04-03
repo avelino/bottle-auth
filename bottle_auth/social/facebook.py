@@ -6,7 +6,7 @@ from bottle_auth.core.exception import UserDenied, NegotiationError
 from bottle_auth.core.auth import FacebookGraphMixin, HTTPRedirect
 
 
-log = logging.getLogger('bottleauth.facebook')
+log = logging.getLogger('bottle-auth.facebook')
 
 
 class Facebook(object):

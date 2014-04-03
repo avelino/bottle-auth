@@ -3,11 +3,12 @@
 import logging
 from urlparse import urlparse
 
+from bottle import redirect
 from bottle_auth.core.exception import UserDenied, NegotiationError
 from bottle_auth.core.auth import GoogleMixin, HTTPRedirect
 
 
-log = logging.getLogger('bottleauth.google')
+log = logging.getLogger('bottle-auth.google')
 
 
 class Google(object):
@@ -29,7 +30,7 @@ class Google(object):
                 ax_attrs=ax_attrs)
         except HTTPRedirect, e:
             log.debug('Redirecting Google user to {0}'.format(e.url))
-            return e.url
+            return redirect(e.url)
         return None
 
     def get_user(self, environ):

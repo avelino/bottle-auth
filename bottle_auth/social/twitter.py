@@ -6,7 +6,7 @@ import re
 from bottle_auth.exception import UserDenied, NegotiationError
 from bottle_auth.core.auth import TwitterMixin, HTTPRedirect
 
-log = logging.getLogger('tastyauth.twitter')
+log = logging.getLogger('bottle-auth.twitter')
 
 
 class Twitter(object):
