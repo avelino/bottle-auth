@@ -2,18 +2,17 @@
 # -*- coding: utf-8 -*-
 from functools import wraps
 
-from bottle import redirect, request
-from bottle.ext import auth
+from bottle import request
 
 
-def login(url='/login'):
+def login(auth):
     def decorator(func):
         @wraps(func)
         def wrapper(*args, **kwargs):
             try:
-                auth.get_user(request.environ)
+                auth.engine.get_user(request.environ)
                 return func(*args, **kwargs)
             except:
-                return redirect(url)
+                return auth.engine.redirect(request.environ)
         return wrapper
     return decorator
