@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-'
 import logging
 
+from bottle import redirect
 from bottle_auth.core.exception import UserDenied, NegotiationError
 from bottle_auth.core.auth import FacebookGraphMixin, HTTPRedirect
 
@@ -32,7 +33,7 @@ class Facebook(object):
 
         except HTTPRedirect, e:
             log.debug('Redirecting Facebook user to {0}'.format(e.url))
-            return e.url
+            return redirect(e.url)
         return None
 
     def get_user(self, environ):

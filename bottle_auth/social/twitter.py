@@ -3,6 +3,7 @@
 import logging
 import re
 
+from bottle import redirect
 from bottle_auth.exception import UserDenied, NegotiationError
 from bottle_auth.core.auth import TwitterMixin, HTTPRedirect
 
@@ -27,7 +28,7 @@ class Twitter(object):
             auth.authorize_redirect(self.callback_url)
         except HTTPRedirect, e:
             log.debug('Redirecting Twitter user to {0}'.format(e.url))
-            return e.url
+            return redirect(e.url)
         except KeyError, e:
             log.warning('Negotiation error for Twitter user')
             raise NegotiationError
