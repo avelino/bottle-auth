@@ -1,17 +1,16 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from setuptools import setup
-import bottle_auth
 
 description = "Bootle authentication, for Personal, Google, Twitter and "\
     "facebook."
 
 setup(
     name='bottle-auth',
-    version=bottle_auth.__version__,
+    version="0.3.0",
     description=description,
-    author=bottle_auth.__author__,
-    author_email=bottle_auth.__email__,
+    author="Thiago Avelino",
+    author_email="thiago@avelino.xxx",
     url='https://github.com/avelino/bottle-auth',
 
     package_dir={'bottle_auth': 'bottle_auth'},

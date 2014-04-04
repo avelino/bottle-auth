@@ -4,11 +4,6 @@ import bottle
 import inspect
 
 
-__version__ = '0.3.0'
-__author__ = "Thiago Avelino"
-__email__ = "thiago@avelino.xxx"
-
-
 class AuthPlugin(object):
     name = 'auth'
 
