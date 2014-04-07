@@ -20,4 +20,4 @@ class Custom(object):
         session = environ.get('beaker.session')
         if session.get("username", None) and session.get("apikey", None):
             return session
-        return {}
+        self.redirect(environ)
