@@ -71,6 +71,9 @@ class Facebook(object):
             code=auth.get_argument('code'),
             callback=get_user_callback)
 
+        session = environ.get('beaker.session')
+        session.update(container)
+        session.save()
         return container
 
     def api(self, environ, path, args, access_token):

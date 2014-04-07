@@ -66,4 +66,8 @@ class Twitter(object):
             }
 
         auth.get_authenticated_user(get_user_callback)
+
+        session = environ.get('beaker.session')
+        session.update(container)
+        session.save()
         return container

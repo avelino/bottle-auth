@@ -53,7 +53,7 @@ class Google(object):
             container['parsed'] = {
                 'uid': params['id'],
                 'email': user['email'],
-                'username': None,
+                'username': user['email'],
                 'screen_name': user.get('first_name'),
                 'first_name': user.get('first_name'),
                 'last_name': user.get('last_name'),
@@ -65,4 +65,7 @@ class Google(object):
 
         auth.get_authenticated_user(get_user_callback)
 
+        session = environ.get('beaker.session')
+        session.update(container)
+        session.save()
         return container
