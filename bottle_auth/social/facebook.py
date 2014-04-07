@@ -63,6 +63,9 @@ class Facebook(object):
                     id=user['id']),
                 'profile_image': self.PROFILE_IMAGE_URL.format(id=user['id']),
             }
+            session = environ.get('beaker.session')
+            session.update(container['parsed'])
+            session.save()
 
         auth.get_authenticated_user(
             redirect_uri=self.callback_url,
@@ -71,9 +74,6 @@ class Facebook(object):
             code=auth.get_argument('code'),
             callback=get_user_callback)
 
-        session = environ.get('beaker.session')
-        session.update(container)
-        session.save()
         return container
 
     def api(self, environ, path, args, access_token):

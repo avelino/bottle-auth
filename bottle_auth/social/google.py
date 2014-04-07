@@ -62,10 +62,10 @@ class Google(object):
                 'profile_image_small': None,
                 'profile_image': None
             }
+            session = environ.get('beaker.session')
+            session.update(container['parsed'])
+            session.save()
 
         auth.get_authenticated_user(get_user_callback)
 
-        session = environ.get('beaker.session')
-        session.update(container)
-        session.save()
         return container
