@@ -15,7 +15,8 @@ setup(
 
     package_dir={'bottle_auth': 'bottle_auth'},
 
-    install_requires=['webob', 'bottle', 'bottle-mongo', 'bottle-beaker'],
+    install_requires=['webob==1.3.1', 'bottle>=0.9', 'bottle-mongo==0.2.2',
+                      'bottle-beaker==0.1.0'],
     classifiers=[
         'Environment :: Web Environment',
         'Environment :: Plugins',
