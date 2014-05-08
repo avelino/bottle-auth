@@ -269,7 +269,8 @@ class OpenIdMixin(GenericAuth):
         methods.
         """
         # Verify the OpenID response via direct request to the OP
-        args = dict((k, v[-1]) for k, v in self.request.arguments.iteritems())
+        # Recommendation @hmarrao, ref #3
+        args = dict((k, unicode(v[-1]).encode('utf-8')) for k, v in self.request.arguments.iteritems())
         args["openid.mode"] = u"check_authentication"
         url = self._OPENID_ENDPOINT
         http = httpclient.AsyncHTTPClient()
