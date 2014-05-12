@@ -34,6 +34,10 @@ class Google(object):
         return None
 
     def get_user(self, environ):
+        session = environ.get('beaker.session')
+        if session.get("email", None):
+            return session
+
         auth = GoogleMixin(environ, self.settings)
 
         if auth.get_argument('error', None):
@@ -62,7 +66,6 @@ class Google(object):
                 'profile_image_small': None,
                 'profile_image': None
             }
-            session = environ.get('beaker.session')
             session.update(container['parsed'])
             session.save()
 

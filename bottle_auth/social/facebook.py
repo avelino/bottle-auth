@@ -37,6 +37,10 @@ class Facebook(object):
         return None
 
     def get_user(self, environ):
+        session = environ.get('beaker.session')
+        if session.get("uid", None):
+            return session
+
         auth = FacebookGraphMixin(environ)
 
         if auth.get_argument('error', None):
@@ -63,7 +67,6 @@ class Facebook(object):
                     id=user['id']),
                 'profile_image': self.PROFILE_IMAGE_URL.format(id=user['id']),
             }
-            session = environ.get('beaker.session')
             session.update(container['parsed'])
             session.save()
 

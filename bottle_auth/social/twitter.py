@@ -35,6 +35,9 @@ class Twitter(object):
         return None
 
     def get_user(self, environ, cookie_monster):
+        session = environ.get('beaker.session')
+        if session.get("uid", None):
+            return session
         auth = TwitterMixin(environ, self.settings, cookie_monster)
 
         if auth.get_argument('denied', None):
@@ -64,7 +67,6 @@ class Twitter(object):
                 'profile_image_small': profile_image_small,
                 'profile_image': profile_image,
             }
-            session = environ.get('beaker.session')
             session.update(container['parsed'])
             session.save()
 
