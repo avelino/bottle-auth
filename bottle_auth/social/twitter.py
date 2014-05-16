@@ -36,7 +36,7 @@ class Twitter(object):
 
     def get_user(self, environ, cookie_monster):
         session = environ.get('beaker.session')
-        if session.get("uid", None):
+        if session.get("parsed", None):
             return session
         auth = TwitterMixin(environ, self.settings, cookie_monster)
 
@@ -67,7 +67,7 @@ class Twitter(object):
                 'profile_image_small': profile_image_small,
                 'profile_image': profile_image,
             }
-            session.update(container['parsed'])
+            session.update(container)
             session.save()
 
         auth.get_authenticated_user(get_user_callback)
