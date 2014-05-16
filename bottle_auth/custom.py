@@ -18,6 +18,6 @@ class Custom(object):
 
     def get_user(self, environ):
         session = environ.get('beaker.session')
-        if session.get("username", None) and session.get("apikey", None):
+        if len(session) >= 1:
             return session
         self.redirect(environ)
