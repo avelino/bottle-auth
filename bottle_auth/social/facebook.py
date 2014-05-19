@@ -38,7 +38,7 @@ class Facebook(object):
 
     def get_user(self, environ):
         session = environ.get('beaker.session')
-        if session.get("on", False):
+        if session.get("uid", None):
             return session
 
         auth = FacebookGraphMixin(environ)
@@ -53,7 +53,7 @@ class Facebook(object):
             if not user:
                 raise NegotiationError()
 
-            container['on'] = True
+            container['uid'] = user.get('email')
             container['attrs'] = user
             container['parsed'] = {
                 'uid': user['id'],

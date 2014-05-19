@@ -35,7 +35,7 @@ class Google(object):
 
     def get_user(self, environ):
         session = environ.get('beaker.session')
-        if session.get("on", False):
+        if session.get("uid", None):
             return session
 
         auth = GoogleMixin(environ, self.settings)
@@ -50,7 +50,7 @@ class Google(object):
             if not user:
                 raise NegotiationError()
 
-            container['on'] = True
+            container['uid'] = user['email']
             container['attrs'] = user
             query_string = urlparse(user['claimed_id']).query
             params = dict(
@@ -58,7 +58,6 @@ class Google(object):
             container['parsed'] = {
                 'uid': params['id'],
                 'email': user['email'],
-                'username': user['email'],
                 'screen_name': user.get('first_name'),
                 'first_name': user.get('first_name'),
                 'last_name': user.get('last_name'),

@@ -36,7 +36,7 @@ class Twitter(object):
 
     def get_user(self, environ, cookie_monster):
         session = environ.get('beaker.session')
-        if session.get("on", False):
+        if session.get("uid", None):
             return session
 
         auth = TwitterMixin(environ, self.settings, cookie_monster)
@@ -51,7 +51,7 @@ class Twitter(object):
             if not user:
                 raise NegotiationError()
 
-            container['on'] = True
+            container['uid'] = user['username']
             container['attrs'] = user
 
             profile_image_small = user['profile_image_url_https']
