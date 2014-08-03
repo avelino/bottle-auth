@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from setuptools import setup
+from setuptools import setup, find_packages
 
 description = "Bootle authentication, for Personal, Google, Twitter and "\
     "facebook."
@@ -12,7 +12,7 @@ setup(
     author="Thiago Avelino",
     author_email="thiago@avelino.xxx",
     url='https://github.com/avelino/bottle-auth',
-
+    packages=find_packages(),
     package_dir={'bottle_auth': 'bottle_auth'},
 
     install_requires=['webob', 'bottle', 'bottle-mongo', 'bottle-beaker'],
