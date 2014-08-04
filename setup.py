@@ -7,7 +7,7 @@ description = "Bootle authentication, for Personal, Google, Twitter and "\
 
 setup(
     name='bottle-auth',
-    version="0.3.2",
+    version="0.3.3",
     description=description,
     author="Thiago Avelino",
     author_email="thiago@avelino.xxx",
