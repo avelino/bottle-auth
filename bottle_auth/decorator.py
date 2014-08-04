@@ -5,14 +5,14 @@ from functools import wraps
 from bottle import request
 
 
-def login(auth):
+def login():
     def decorator(func):
         @wraps(func)
-        def wrapper(*args, **kwargs):
+        def wrapper(auth, *args, **kwargs):
             try:
-                auth.engine.get_user(request.environ)
+                auth.get_user(request.environ)
                 return func(*args, **kwargs)
             except:
-                return auth.engine.redirect(request.environ)
+                return auth.redirect(request.environ)
         return wrapper
     return decorator
