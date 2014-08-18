@@ -55,3 +55,16 @@ Create project
 3. On the left menu, Create a new Project
 4. To start, you don’t need any Services, so select the API Access tab rom the left menu and “Create an OAuth 2.0 client ID…”
 5. Fill out the Client ID form for a **web application** and use *localhost:8000* as your hostname
+
+
+Facebook
+--------
+
+Create project
+++++++++++++++
+
+1. Sign into your Facebook account in your browser
+2. Visit `https://developers.facebook.com/ <https://developers.facebook.com/>`_ in the same browser
+3. Click Apps > Create a New App in the navigation bar
+4. Enter Display Name, then choose a category, then click Create app
+5. Fill out the Client ID form for a **web application** and use *localhost:8000* as your hostname
