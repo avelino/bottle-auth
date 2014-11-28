@@ -40,7 +40,7 @@ Example
 
 
 
-Application in production: `https://github.com/avelino/mining/blob/master/auth.py <https://github.com/avelino/mining/blob/master/auth.py>`_
+Application in production: `https://github.com/avelino/mining/blob/master/mining/auth.py <https://github.com/avelino/mining/blob/master/mining/auth.py>`_
 
 
 
