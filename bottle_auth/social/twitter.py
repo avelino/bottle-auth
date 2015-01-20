@@ -4,7 +4,7 @@ import logging
 import re
 
 from bottle import redirect
-from bottle_auth.exception import UserDenied, NegotiationError
+from bottle_auth.core.exception import UserDenied, NegotiationError
 from bottle_auth.core.auth import TwitterMixin, HTTPRedirect
 
 log = logging.getLogger('bottle-auth.twitter')
