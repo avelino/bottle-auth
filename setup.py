@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 from setuptools import setup, find_packages
 
-description = "Bootle authentication, for Personal, Google, Twitter and "\
+description = "Bottle authentication, for Personal, Google, Twitter and "\
     "facebook."
 
 setup(
